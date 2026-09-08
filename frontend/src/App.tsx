@@ -27,6 +27,8 @@ const getOrCreateSessionId = (): string => {
 
 const MAX_IMAGE_SIZE = 5 * 1024 * 1024;
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
+
 const ALLOWED_IMAGE_TYPES = [
   "image/jpeg",
   "image/png",
@@ -154,7 +156,7 @@ function App() {
 
     try {
       const response = await fetch(
-        "http://localhost:3000/api/valuation",
+        `${API_URL}/api/valuation`,
         {
           method: "POST",
           body: formData,
