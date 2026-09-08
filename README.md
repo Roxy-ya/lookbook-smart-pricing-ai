@@ -9,6 +9,15 @@ L'utente carica una fotografia del prodotto, specifica categoria, brand e stato 
 - motivazione della stima;
 - consigli per migliorare la vendita.
 
+## Demo online
+
+L'applicazione è disponibile online:
+
+- **Frontend:** https://lookbook-smart-pricing-ai.netlify.app
+- **Backend API:** https://lookbook-smart-pricing-ai-backend.onrender.com
+
+> Il backend utilizza un'istanza gratuita su Render, quindi la prima richiesta dopo un periodo di inattività potrebbe richiedere qualche secondo in più.
+
 ## Obiettivo
 
 Il progetto nasce per semplificare l'esperienza di vendita all'interno di un marketplace di moda second-hand, aiutando gli utenti a definire un prezzo realistico e coerente con le caratteristiche del prodotto.
