@@ -6,7 +6,18 @@ import { OPENAI_MODEL } from "./config/openaiClient.js";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.use(cors());
+// Configura CORS per consentire richieste solo da origini specifiche
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://lookbook-smart-pricing-ai.netlify.app",
+];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+  }),
+);
+
 app.use(express.json());
 
 app.get("/", (_req, res) => {
@@ -18,6 +29,6 @@ app.get("/", (_req, res) => {
 app.use("/api/valuation", valuationRoutes);
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`Server running on port ${PORT}`);
   console.log(`OpenAI model configured: ${OPENAI_MODEL}`);
 });
