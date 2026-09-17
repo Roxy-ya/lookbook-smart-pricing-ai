@@ -1,3 +1,4 @@
+import * as Sentry from "@sentry/react";
 import { useEffect, useRef, useState } from "react";
 
 interface ValuationResult {
@@ -363,7 +364,21 @@ function App() {
             Nuova valutazione
           </button>
         </section>
+        
       )}
+      {import.meta.env.DEV && (
+        <button
+          type="button"
+          onClick={() => {
+            Sentry.captureException(
+              new Error("Sentry test - LookBook Smart Pricing AI"),
+            );
+          }}
+        >
+          Test Sentry
+        </button>
+      )}
+
     </main>
   );
 }
