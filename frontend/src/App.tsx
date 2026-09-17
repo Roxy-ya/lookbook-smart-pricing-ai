@@ -52,33 +52,30 @@ function App() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (!image) {
-      setImagePreview(null);
-      return;
-    }
-
-    const previewUrl = URL.createObjectURL(image);
-
-    setImagePreview(previewUrl);
-
     return () => {
-      URL.revokeObjectURL(previewUrl);
+      if (imagePreview) {
+        URL.revokeObjectURL(imagePreview);
+      }
     };
-  }, [image]);
+  }, [imagePreview]);
 
   // Gestisce il cambiamento dell'immagine selezionata dall'utente.
-  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImageChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+  ) => {
     const file = event.target.files?.[0] ?? null;
 
     setError("");
 
     if (!file) {
       setImage(null);
+      setImagePreview(null);
       return;
     }
 
     if (!ALLOWED_IMAGE_TYPES.includes(file.type)) {
       setImage(null);
+      setImagePreview(null);
 
       setError(
         "Formato immagine non supportato. Usa JPG, PNG oppure WEBP.",
@@ -91,6 +88,7 @@ function App() {
 
     if (file.size > MAX_IMAGE_SIZE) {
       setImage(null);
+      setImagePreview(null);
 
       setError(
         "L'immagine è troppo grande. La dimensione massima consentita è 5 MB.",
@@ -101,7 +99,10 @@ function App() {
       return;
     }
 
+    const previewUrl = URL.createObjectURL(file);
+
     setImage(file);
+    setImagePreview(previewUrl);
   };
 
   // Gestisce il reset del form e dei risultati della valutazione.

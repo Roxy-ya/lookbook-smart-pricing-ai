@@ -92,3 +92,88 @@ Node.js / Express
   |
   v
 React
+
+
+## Progetto DevOps
+
+Questo repository viene utilizzato per costruire un ciclo DevOps completo
+per l'applicazione LookBook Smart Pricing AI.
+
+Gli obiettivi del progetto sono:
+
+- containerizzare frontend e backend tramite Docker;
+- gestire l'ambiente locale tramite Docker Compose;
+- separare configurazione e secrets dal codice sorgente;
+- implementare una pipeline CI con GitHub Actions;
+- automatizzare il deploy tramite una pipeline CD;
+- distribuire il frontend su Netlify e il backend su Render;
+- monitorare la disponibilità dell'applicazione tramite UptimeRobot;
+- integrare Sentry per il monitoraggio degli errori.
+
+## Ambienti
+
+### Development
+
+L'ambiente di development viene eseguito localmente tramite Docker.
+
+Componenti:
+
+- frontend React + TypeScript;
+- backend Node.js + Express;
+- OpenAI API;
+- Supabase.
+
+L'obiettivo è permettere l'avvio dell'applicazione completa tramite Docker Compose.
+
+### Staging
+
+L'ambiente di staging viene utilizzato per verificare le modifiche prima
+del rilascio in produzione.
+
+Per il frontend verranno utilizzate le Deploy Preview generate durante
+il processo di sviluppo.
+
+### Production
+
+L'ambiente di produzione utilizza:
+
+- Netlify per il frontend;
+- Render per il backend;
+- Supabase/PostgreSQL per la persistenza dei dati;
+- OpenAI API per la generazione delle valutazioni.
+
+Frontend pubblico:
+
+https://lookbook-smart-pricing-ai.netlify.app
+
+## CI/CD
+
+Per l'automazione del ciclo DevOps viene utilizzato GitHub Actions.
+
+La scelta è motivata dall'integrazione nativa con GitHub, dove è ospitato
+il repository del progetto.
+
+La pipeline verrà configurata per eseguire automaticamente:
+
+1. installazione delle dipendenze;
+2. linting del codice;
+3. build del frontend;
+4. build del backend;
+5. build delle immagini Docker;
+6. deploy automatico in produzione.
+
+## Roadmap DevOps
+
+- [x] Analisi dell'applicazione
+- [x] Definizione degli ambienti
+- [x] Scelta dello strumento CI/CD
+- [ ] Containerizzazione frontend
+- [ ] Containerizzazione backend
+- [ ] Docker Compose
+- [ ] Gestione secrets
+- [ ] Pipeline CI
+- [ ] Pipeline CD
+- [ ] Deploy automatico
+- [ ] Uptime monitoring
+- [ ] Error tracking
+- [ ] Documentazione finale

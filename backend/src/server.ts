@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 3000;
 // Configura CORS per consentire richieste solo da origini specifiche
 const allowedOrigins = [
   "http://localhost:5173",
+  "http://localhost:8080",
   "https://lookbook-smart-pricing-ai.netlify.app",
 ];
 
