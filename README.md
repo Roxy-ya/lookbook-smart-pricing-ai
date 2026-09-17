@@ -709,13 +709,18 @@ GitHub Actions rappresenta quindi l'unico punto di controllo del processo di ril
 
 # Monitoraggio
 
-Il progetto prevede due livelli di monitoraggio.
+Il progetto utilizza due strumenti di monitoraggio complementari:
+
+- UptimeRobot per verificare la disponibilità dei servizi pubblici;
+- Sentry per il monitoraggio degli errori applicativi.
+
+---
 
 ## Uptime monitoring
 
-Verrà utilizzato UptimeRobot per monitorare la disponibilità dell'applicazione pubblica.
+UptimeRobot controlla periodicamente la disponibilità del frontend e del backend.
 
-Monitor previsti:
+Sono configurati due monitor HTTP:
 
 ```text
 Frontend:
@@ -723,11 +728,6 @@ https://lookbook-smart-pricing-ai.netlify.app
 
 Backend:
 https://lookbook-smart-pricing-ai-backend.onrender.com
-```
-
-Gli alert permetteranno di identificare eventuali periodi di indisponibilità dell'applicazione.
-
-> Configurazione in corso.
 
 ---
 
